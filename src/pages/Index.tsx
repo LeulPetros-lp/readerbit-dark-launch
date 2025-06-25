@@ -13,7 +13,7 @@ const Index = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen">
       <Header />
       <Hero />
       <Stats />
@@ -22,17 +22,17 @@ const Index = () => {
       {/* CTA Section */}
       <section className="py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <Card className="glass-card p-12 border-purple-500/20">
+          <Card className="p-12">
             <CardContent className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
                 Ready to Transform Your Reading?
               </h2>
-              <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
                 Join thousands of readers who have already discovered the power of data-driven reading insights.
               </p>
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold transition-all duration-300 transform hover:scale-105"
+                className="px-8 py-4 text-lg font-semibold"
                 onClick={() => navigate('/dashboard')}
               >
                 Start Your Journey

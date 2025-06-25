@@ -1,37 +1,38 @@
 
 import { Card, CardContent } from "@/components/ui/card";
+import { BarChart3, Target, Trophy, Users, Smartphone, Bot } from "lucide-react";
 
 const Features = () => {
   const features = [
     {
       title: "Smart Analytics",
       description: "Track reading speed, comprehension rates, and progress patterns with advanced data visualization.",
-      icon: "📊"
+      icon: BarChart3
     },
     {
       title: "Personalized Insights",
       description: "Get tailored recommendations based on your reading habits and preferences.",
-      icon: "🎯"
+      icon: Target
     },
     {
       title: "Goal Tracking",
       description: "Set and achieve reading goals with intelligent milestone tracking and motivation.",
-      icon: "🏆"
+      icon: Trophy
     },
     {
       title: "Social Reading",
       description: "Connect with fellow readers, share insights, and discover new books together.",
-      icon: "👥"
+      icon: Users
     },
     {
       title: "Multi-Platform",
       description: "Seamlessly sync your reading progress across all your devices and platforms.",
-      icon: "📱"
+      icon: Smartphone
     },
     {
       title: "AI Recommendations",
       description: "Discover your next favorite book with our AI-powered recommendation engine.",
-      icon: "🤖"
+      icon: Bot
     }
   ];
 
@@ -39,11 +40,11 @@ const Features = () => {
     <section id="features" className="py-20 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Powerful Features for
-            <span className="gradient-text block">Modern Readers</span>
+            <span className="block">Modern Readers</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Everything you need to take your reading to the next level, powered by cutting-edge technology.
           </p>
         </div>
@@ -52,14 +53,14 @@ const Features = () => {
           {features.map((feature, index) => (
             <Card 
               key={index} 
-              className="glass-card hover:bg-white/10 transition-all duration-300 transform hover:scale-105 border-purple-500/20"
+              className="hover:shadow-lg transition-all duration-300 transform hover:scale-105"
             >
               <CardContent className="p-8 text-center">
-                <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-semibold text-white mb-4">
+                <feature.icon className="h-12 w-12 mx-auto mb-4 text-foreground" />
+                <h3 className="text-xl font-semibold text-foreground mb-4">
                   {feature.title}
                 </h3>
-                <p className="text-gray-300 leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed">
                   {feature.description}
                 </p>
               </CardContent>

@@ -1,5 +1,4 @@
 
-import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
   Sidebar,
@@ -12,20 +11,32 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
+import { 
+  BarChart3, 
+  TrendingUp, 
+  BookOpen, 
+  Target, 
+  Lightbulb, 
+  Users, 
+  User, 
+  Settings, 
+  HelpCircle,
+  Home
+} from "lucide-react";
 
 const menuItems = [
-  { title: "Overview", url: "/dashboard", icon: "📊" },
-  { title: "Reading Stats", url: "/dashboard/stats", icon: "📈" },
-  { title: "Books", url: "/dashboard/books", icon: "📚" },
-  { title: "Goals", url: "/dashboard/goals", icon: "🎯" },
-  { title: "Insights", url: "/dashboard/insights", icon: "💡" },
-  { title: "Social", url: "/dashboard/social", icon: "👥" },
+  { title: "Overview", url: "/dashboard", icon: BarChart3 },
+  { title: "Reading Stats", url: "/dashboard/stats", icon: TrendingUp },
+  { title: "Books", url: "/dashboard/books", icon: BookOpen },
+  { title: "Goals", url: "/dashboard/goals", icon: Target },
+  { title: "Insights", url: "/dashboard/insights", icon: Lightbulb },
+  { title: "Social", url: "/dashboard/social", icon: Users },
 ];
 
 const settingsItems = [
-  { title: "Profile", url: "/dashboard/profile", icon: "👤" },
-  { title: "Settings", url: "/dashboard/settings", icon: "⚙️" },
-  { title: "Help", url: "/dashboard/help", icon: "❓" },
+  { title: "Profile", url: "/dashboard/profile", icon: User },
+  { title: "Settings", url: "/dashboard/settings", icon: Settings },
+  { title: "Help", url: "/dashboard/help", icon: HelpCircle },
 ];
 
 export function AppSidebar() {
@@ -38,15 +49,15 @@ export function AppSidebar() {
   const isActive = (path: string) => currentPath === path;
 
   return (
-    <Sidebar className={`${collapsed ? "w-16" : "w-64"} bg-black/40 backdrop-blur-md border-r border-white/10`}>
-      <SidebarContent className="bg-transparent">
+    <Sidebar className={`${collapsed ? "w-16" : "w-64"} border-r`}>
+      <SidebarContent>
         {/* Logo Section */}
-        <div className="p-6 border-b border-white/10">
+        <div className="p-6 border-b">
           <div className="flex items-center gap-3">
-            <div className="text-2xl">📖</div>
+            <BookOpen className="h-8 w-8" />
             {!collapsed && (
-              <h2 className="text-xl font-comfortaa font-bold gradient-text">
-                ReaderBit
+              <h2 className="text-xl font-comfortaa font-bold">
+                readerbit
               </h2>
             )}
           </div>
@@ -54,7 +65,7 @@ export function AppSidebar() {
 
         {/* Main Navigation */}
         <SidebarGroup>
-          <SidebarGroupLabel className="text-gray-400 px-6 py-2">
+          <SidebarGroupLabel className="px-6 py-2">
             {!collapsed && "Dashboard"}
           </SidebarGroupLabel>
           <SidebarGroupContent>
@@ -66,12 +77,12 @@ export function AppSidebar() {
                     className={`
                       mx-3 mb-1 rounded-lg transition-all duration-200
                       ${isActive(item.url) 
-                        ? 'bg-gradient-to-r from-blue-500/20 to-purple-600/20 text-white border border-purple-500/30' 
-                        : 'text-gray-300 hover:bg-white/10 hover:text-white'
+                        ? 'bg-accent text-accent-foreground' 
+                        : 'hover:bg-accent/50'
                       }
                     `}
                   >
-                    <span className="text-lg mr-3">{item.icon}</span>
+                    <item.icon className="h-4 w-4" />
                     {!collapsed && <span>{item.title}</span>}
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -82,7 +93,7 @@ export function AppSidebar() {
 
         {/* Settings Section */}
         <SidebarGroup className="mt-auto">
-          <SidebarGroupLabel className="text-gray-400 px-6 py-2">
+          <SidebarGroupLabel className="px-6 py-2">
             {!collapsed && "Account"}
           </SidebarGroupLabel>
           <SidebarGroupContent>
@@ -94,12 +105,12 @@ export function AppSidebar() {
                     className={`
                       mx-3 mb-1 rounded-lg transition-all duration-200
                       ${isActive(item.url) 
-                        ? 'bg-gradient-to-r from-blue-500/20 to-purple-600/20 text-white border border-purple-500/30' 
-                        : 'text-gray-300 hover:bg-white/10 hover:text-white'
+                        ? 'bg-accent text-accent-foreground' 
+                        : 'hover:bg-accent/50'
                       }
                     `}
                   >
-                    <span className="text-lg mr-3">{item.icon}</span>
+                    <item.icon className="h-4 w-4" />
                     {!collapsed && <span>{item.title}</span>}
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -109,12 +120,12 @@ export function AppSidebar() {
         </SidebarGroup>
 
         {/* Back to Landing */}
-        <div className="p-4 border-t border-white/10 mt-4">
+        <div className="p-4 border-t mt-4">
           <SidebarMenuButton
             onClick={() => navigate('/')}
-            className="w-full text-gray-300 hover:bg-white/10 hover:text-white transition-all duration-200 rounded-lg"
+            className="w-full hover:bg-accent/50 transition-all duration-200 rounded-lg"
           >
-            <span className="text-lg mr-3">🏠</span>
+            <Home className="h-4 w-4" />
             {!collapsed && <span>Back to Home</span>}
           </SidebarMenuButton>
         </div>

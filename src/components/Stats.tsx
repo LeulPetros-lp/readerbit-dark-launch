@@ -14,12 +14,12 @@ const Stats = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
-            <Card key={index} className="glass-card border-purple-500/20 text-center">
+            <Card key={index} className="text-center">
               <CardContent className="p-8">
-                <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">
+                <div className="text-3xl md:text-4xl font-bold text-foreground mb-2">
                   {stat.number}
                 </div>
-                <div className="text-gray-300 font-medium">
+                <div className="text-muted-foreground font-medium">
                   {stat.label}
                 </div>
               </CardContent>
