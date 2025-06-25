@@ -2,20 +2,24 @@
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 import DashboardContent from "@/components/DashboardContent";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const Dashboard = () => {
   return (
-    <div className="min-h-screen flex w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen flex w-full">
       <AppSidebar />
       
       <main className="flex-1 overflow-hidden">
-        <header className="h-16 flex items-center justify-between px-6 border-b border-white/10 bg-black/20 backdrop-blur-md">
+        <header className="h-16 flex items-center justify-between px-6 border-b">
           <div className="flex items-center gap-4">
-            <SidebarTrigger className="text-white hover:bg-white/10" />
-            <h1 className="text-xl font-semibold text-white">Dashboard</h1>
+            <SidebarTrigger />
+            <h1 className="text-xl font-semibold">Dashboard</h1>
           </div>
-          <div className="text-sm text-gray-300">
-            Welcome back, Reader!
+          <div className="flex items-center gap-4">
+            <div className="text-sm text-muted-foreground">
+              Welcome back, Reader!
+            </div>
+            <ThemeToggle />
           </div>
         </header>
         
